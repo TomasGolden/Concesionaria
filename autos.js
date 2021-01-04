@@ -18,6 +18,6 @@ let autos = [{
     cuotas: 14,
     anio: 2019, 
     patente: 'JJK116',
-    vendido: false 
+    vendido: false
 }];
 module.exports = autos

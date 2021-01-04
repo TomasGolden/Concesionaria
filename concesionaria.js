@@ -32,12 +32,22 @@ const concesionaria = {
             return contador;
          }, 
          totalDeVentas: function() {
-              this.autos.reduce((total, elemento) => {
-                console.log(elemento.precio);
-               return total + elemento.precio;
-               },0);
-             },
-                    
-}
+              return this.autos.reduce((total, elemento) => {
+              return total + (elemento.vendido) ? elemento.precio: 0;
+              }, 0)
+              },
+              puedeComprar: function(auto, persona) {
+            if (persona.capacidadDePagoTotal >= auto.precio && persona.capacidadDePagoEnCuotas >= (auto.precio / auto. cuotas)) {
+               return true;
+            } else {
+               return false;
+            }
+              },
+              autosQuePuedeComprar: function(persona) {
+             let autosParaVender = this.autosParaLaVenta();
+               return autosParaVender.filter(auto => {
+                 return this.puedeComprar(auto, persona)
+                })
 
-console.log(concesionaria.totalDeVentas())
+              }
+}
