@@ -49,5 +49,7 @@ const concesionaria = {
                  return this.puedeComprar(auto, persona)
                 })
 
-              }
+              },
+              
+
 }
